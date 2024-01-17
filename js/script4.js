@@ -114,4 +114,4 @@ const video = ["youtube", "vimeo", "rutube"],
 	blogs = ["wordpress", "lifejournal", "blogger"],
 	internet = [...video, ...blogs, "vk", "facebook"];
 
-	  
+console.log(internet);	  
