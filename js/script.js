@@ -5,7 +5,7 @@ let countOfFilms;
 
 function start() {
 	while (!isValidInput) {
-		countOfFilms = prompt("Введите количество просмотренных фильмов:");
+		countOfFilms = prompt("Введите количество просмотренных фильмов:").trim();
 		if (countOfFilms === null) {
 			// Пользователь нажал "Отмена" в диалоговом окне
 			alert("Вы отменили ввод. Для продолжения введите количество просмотренных фильмов.");
@@ -31,14 +31,14 @@ const personalMovieDB = {
 };
 
 function remeberMyFilms() {
-	for (let i = 1; i <= countOfFilms; i++) {
-		let movieName = prompt("Один из последних просмотренных фильмов?", "");
+	for (let i = 1; i <= 2; i++) {
+		let movieName = prompt("Один из последних просмотренных фильмов?", "").trim();
 		if (movieName === null || movieName.length === 0 || movieName.length > 50) {
 			alert("Введите название фильма, длиной не более 50 символов.");
 			i--; // чтобы уменьшить i и повторно запросить ввод
 			continue;
 		}
-		let userRating = prompt("На сколько оцените его?", "");
+		let userRating = prompt("На сколько оцените его?", "").trim();
 		if (userRating === null || isNaN(userRating) || userRating <= 0) {
 			alert("Введите корректную оценку для фильма.");
 			i--; // чтобы уменьшить i и повторно запросить ввод
@@ -76,7 +76,7 @@ showMyDB(personalMovieDB.privat);
 
 function writeYourGenres() {
 	for(let i = 1; i <= 3; i++) {
-		const genre = prompt(`Ваш любимый жанр под номером ${i}`);
+		const genre = prompt(`Ваш любимый жанр под номером ${i}`).trim();
 		if (genre === null || genre.length === 0 || genre.length > 50 || !isNaN(genre)) {
 			alert("Введите название жанра");
 			i--;
