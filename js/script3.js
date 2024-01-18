@@ -140,6 +140,20 @@ const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
 - После валюты: стоит перенос строки \n, и после каждой валюты тоже. Это важно для тестов
 - Данные для первого аргумента должны приходить сразу из двух банков, причем сначала baseCurrencies, 
 потом additionalCurrencies по порядку
+
+14) У вас есть небольшой кусочек данных о торговом центре, которые записаны в объекте shoppingMallData. 
+Они содержат массив с данными о магазинах, где указана длина и ширина помещения; высоту помещения; 
+стоимость отопления за 1 кубический метр и бюджет на оплату отопления за месяц.
+Основная задача - это написать функцию isBudgetEnough, которая буде возвращать строку. 
+Если бюджета хватает для отопления всего объема торгового центра - выводится 'Бюджета достаточно', 
+если нет - 'Бюджета недостаточно'.
+Но эта задача содержит несколько подзадач внутри:
+- вычисление общей площади всех магазинов, которая вычисляется как длина магазина, умноженная на его ширину;
+- вычисление общего объема торгового центра, так как цена отопления указана в кубических метрах;
+- определение того, хватает ли бюджета на оплату такого объема;
+- все числа идут без единиц измерения для упрощения, просто цифры и все;
+- функция должна продолжать работать, даже если изменяется количество магазинов, высота, бюджет 
+или подставляется вообще другой объект.
 */
 
 // Место для первой задачи
@@ -319,3 +333,66 @@ function availableCurr(arr, missingCurr) {
 	return str;
 }
 console.log(availableCurr(baseCurrencies, additionalCurrencies));
+
+// Место для четырнадцатой задачи
+const shoppingMallData = {
+	shops: [
+		{
+			width: 10,
+			length: 5
+		},
+		{
+			width: 15,
+			length: 7
+		},
+		{
+			width: 20,
+			length: 5
+		},
+		{
+			width: 8,
+			length: 10
+		}
+	],
+	height: 5,
+	moneyPer1m3: 30,
+	budget: 50000
+};
+function isBudgetEnough(data) {
+	let square = 0;
+	let volume = 0;
+
+	data.shops.forEach(shop => {
+		square += shop.width * shop.length;
+	});
+
+	volume = data.height * square;
+
+	if (data.budget - (volume * data.moneyPer1m3) >= 0) {
+		return "Бюджета достаточно";
+	} else {
+		return "Бюджета недостаточно";
+	}
+}
+console.log(isBudgetEnough(shoppingMallData));
+
+// 15
+const students = ["Peter", "Andrew", "Ann", "Mark", "Josh", "Sandra", "Cris", "Bernard", "Takesi", "Sam"];
+
+function sortStudentsByGroups(arr) {
+	arr.sort((a, b) => a - b);
+
+	const groups = [[], [], []];
+	const rest = [];
+
+	for (let i = 0; i < arr.length; i++) {
+		if (i < groups.length * 3) {
+			groups[i % groups.length].push(arr[i]);
+		} else {
+			rest.push(arr[i]);
+		}
+	}
+
+	return { a: groups[0], b: groups[1], c: groups[2], rest: `Оставшиеся студенты: ${rest.length === 0 ? "-" : rest.join(", ")}` };
+}
+sortStudentsByGroups(students);
