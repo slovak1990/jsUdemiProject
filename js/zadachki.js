@@ -396,3 +396,17 @@ function sortStudentsByGroups(arr) {
 	return { a: groups[0], b: groups[1], c: groups[2], rest: `Оставшиеся студенты: ${rest.length === 0 ? "-" : rest.join(", ")}` };
 }
 sortStudentsByGroups(students);
+
+
+// let x = 5; alert(x++); ---> 5
+// [] + false - null + true  ---> Nan
+// let y = 1; let x = y = 1; alert(x); ---> 2
+// [] + 1 + 2    ---> 12
+// alert("1"[0]); ---> 1
+// 2 && 1 && nul && 0 && undefined ---> null
+// !!(a && b) === (a && b) ---> false
+// alert(null || 2 & 3 || 4) ---> 3
+// (a = [1, 2, 3]) == (b = [1, 2, 3]) ---> false
+// alert(+"infinity"); ---> infinity
+// "Ёжик" > "яблоко" ---> false
+// 0 || "" || 2 || undefined || true || false ---> 2
