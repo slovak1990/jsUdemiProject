@@ -3,9 +3,9 @@
 const box = document.getElementById("box"),
 	btns = document.getElementsByTagName("button"),
 	circles = document.getElementsByClassName("circle"),
-	hearts = document.querySelectorAll(".heart"),
-	oneHeart = document.querySelector(".heart"),
-	wrapper = document.querySelector(".wrapper");
+	wrapper = document.querySelector(".wrapper"),
+	hearts = wrapper.querySelectorAll(".heart"),
+	oneHeart = wrapper.querySelector(".heart");
 
 // box.style.backgroundColor = "blue";
 // box.style.width = "500px";
@@ -29,7 +29,9 @@ const div = document.createElement("div"); // создан пока что в JS
 
 div.classList.add("black");
 document.body.append(div);
-// wrapper.append(div);
+wrapper.append(div);
+
+// wrapper.appendChild(div);
 // wrapper.prepend(div);
 
 //hearts[2].before(div);
@@ -38,4 +40,13 @@ document.body.append(div);
 // circles[0].remove();
 
 // hearts[0].replaceWith(circles[0]);
+
+div.innerHTML = "<h1>Hello world</h1>";
+// div.textContent = "Hi";
+
+div.insertAdjacentHTML("beforebegin", "<h2>before begin</h2>");
+div.insertAdjacentHTML("afterbegin", "<h2>after begin</h2>");
+div.insertAdjacentHTML("afterend", "<h2>after end</h2>");
+div.insertAdjacentHTML("afterbegin", "<h2>begin end</h2>");
+
 
