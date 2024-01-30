@@ -36,7 +36,7 @@ genre.textContent = "Драма"; // меняем текст дочернего 
 
 poster.style.backgroundImage = "url('img/bg.jpg')"; // меняем фон у постера, взяв другую кратинку
 
-movieList.innerHTML = ""; // чистим список фильмов
+movieList.innerHTML = ""; // чистим список
 movieDB.movies.sort(); // сортируем элементы
 movieDB.movies.forEach((film, i) => { 
 	movieList.innerHTML += `

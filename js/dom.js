@@ -37,7 +37,7 @@ wrapper.append(div);
 //hearts[2].before(div);
 // hearts[1].after(div);
 
-// circles[0].remove();
+// circles[0].remove(); // удалить элемент
 
 // hearts[0].replaceWith(circles[0]);
 
