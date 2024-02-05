@@ -225,16 +225,23 @@ function fib(count) {
 
 // Место для шестой задачи
 function factorial(n) {
-	if (typeof n !== "number" || n < 0 || typeof(n) === "number" && n % 1 !== 0 ) {
+	if (typeof n !== "number" || typeof(n) === "number" && n % 1 !== 0 ) {
 		return "Введите целое число";
 	} else {
-		if (n === 0 || n === 1) {
+		if (n === 0 || n === 1 || n < 0) {
 			return 1;
 		} else {
 			return n * factorial(n - 1);
 		}
 	}
 }
+
+console.log(factorial(-1));
+console.log(factorial("tri"));
+console.log(factorial(0));
+console.log(factorial(1));
+console.log(factorial(2));
+console.log(factorial(3));
 
 // Место для седьмой задачи
 const personalPlanPeter = {
