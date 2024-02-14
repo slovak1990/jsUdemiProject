@@ -341,31 +341,31 @@ let students = {
 	}
 };
 
-// function getTotalProgressByIteration(data) {
-// 	let total = 0;
-// 	let studentsCount = 0;
+function getTotalProgressByIteration(data) {
+	let total = 0;
+	let studentsCount = 0;
 
-// 	for (let course of Object.values(data)) {
-// 		if (Array.isArray(course)) {
-// 			studentsCount += course.length;
+	for (let course of Object.values(data)) {
+		if (Array.isArray(course)) {
+			studentsCount += course.length;
 
-// 			for (let i = 0; i < course.length; i++) {
-// 				total += course[i].progress;
-// 			}
-// 		} else {
-// 			for (let subCourse of Object.values(course)) {
-// 				studentsCount += subCourse.length;
+			for (let i = 0; i < course.length; i++) {
+				total += course[i].progress;
+			}
+		} else {
+			for (let subCourse of Object.values(course)) {
+				studentsCount += subCourse.length;
 
-// 				for (let i = 0; i < subCourse.length; i++) {
-// 					total += subCourse[i].progress;
-// 				}
-// 			}
-// 		}
-// 	}
-// 	return total / studentsCount;
-// }
+				for (let i = 0; i < subCourse.length; i++) {
+					total += subCourse[i].progress;
+				}
+			}
+		}
+	}
+	return total / studentsCount;
+}
 
-//console.log(getTotalProgressByIteration(students));
+console.log(getTotalProgressByIteration(students));
 
 
 function getTotalProgressByRecursion(data) {
