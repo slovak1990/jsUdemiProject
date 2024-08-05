@@ -417,3 +417,56 @@ sortStudentsByGroups(students);
 // alert(+"infinity"); ---> infinity
 // "Ёжик" > "яблоко" ---> false
 // 0 || "" || 2 || undefined || true || false ---> 2
+
+// 16
+function amountOfPages(summary){
+	let n = 0;
+    let digitsCount = 0;
+
+    while (digitsCount < summary) {
+        n++;
+        digitsCount += n.toString().length;
+    }
+
+    return n;
+}
+console.log(amountOfPages(5));
+console.log(amountOfPages(25));
+console.log(amountOfPages(1095));
+console.log(amountOfPages(185));
+console.log(amountOfPages(0));
+
+// 17
+function isPangram(string) {
+    string = string.toLowerCase();
+    const alphabet = new Set('abcdefghijklmnopqrstuvwxyz');
+    for (const char of string) {
+        alphabet.delete(char);
+
+        if (alphabet.size === 0) {
+            return true;
+        }
+    }
+    return false;
+}
+console.log(isPangram("Hello world"));
+console.log(isPangram("The quick brown fox jumps over the lazy dog"));
+
+// 17
+function deepCount(a){
+	let count = 0;
+    function countElements(a) {
+        for (const element of a) {
+            count++;
+            if (Array.isArray(element)) {
+                countElements(element);
+            }
+        }
+    }
+    countElements(a);
+    return count;
+}
+console.log(deepCount([1, 2, [3, 4, [5]]]));
+console.log(deepCount([1, 2, [3, 4, [5, 6]], 7]));
+console.log(deepCount([[[[]]]]));
+console.log(deepCount([1, [2, [3, [4, [5]]]]]));
